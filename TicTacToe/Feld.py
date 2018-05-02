@@ -1,10 +1,13 @@
 class Feld:
 
-    def __init__(self, x, y, nummer):
+    def __init__(self, x, y, master):
         self.x = x
         self.y = y
-        self.nummer = nummer
+        self.koordinaten = [x,y]
+        self.master = master
+        self.nummer = self.y * self.master.gibFormat() - 2 + self.x
         self.zustand = 0
+        self.master.spielfeldlisteErgaenzen(self)
 
 
     def setzeZustand(self,z):
@@ -35,3 +38,7 @@ class Feld:
         return self.y
     def setzeY(self, y):
         self.y = y
+        
+    
+    def gibKoordinaten(self):
+        return self.koordinaten
