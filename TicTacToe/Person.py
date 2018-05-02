@@ -1,13 +1,21 @@
 class Person:
-    def __init__(self, name, zeichen):
-        self.name = name
+
+    def __init__(self, zeichen):
         self.zeichen = zeichen
         self.felderListe = []
+
+
     def felderListeErgaenzen(self, feld):
         self.felderListe.append(feld)
-    def gibFelderList(self):
+
+    def gibFelderListe(self):
         return self.felderListe
-    def gibName(self):
-        return self.name
+
+    def felderListeLeeren(self):
+        self.felderListe = []
+
+
     def gibZeichen(self):
         return self.zeichen
+    def setzeZeichen(self, z):
+        self.zeichen = z
