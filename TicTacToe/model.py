@@ -15,8 +15,10 @@ class Spielfeld:
 		
 		for x in range(1, self.format+1):
 			for y in range(1, self.format+1):
+				exec("global f_"+str(x) + "_" + str(y)+";f_"+str(x) + "_" + str(y) + "= Feld("+str(x) + "," + str(y) + ",self)")
 				exec("self.spielfeldliste.append("+str(x) + "_" + str(y)+")")
 				self.zustandsliste.append(0)
+				print(self.spielfeldliste)
 				
 	
 	def spielfeldlisteErgaenzen(self, feld):
@@ -38,6 +40,7 @@ class Spielfeld:
 			self.aktuellerspieler.felderListeErgaenzen(feld)
 			#feld.setzeZustand(self.aktuellerspieler.gibZeichen())
 			self.zustandsliste[feld] = self.aktuellerspieler.gibZeichen()
+			self.siegpruefen()
 			self.spielerliste.append(self.aktuellerspieler)
 			self.aktuellerspieler = self.spielerliste.pop(0)
 		
@@ -69,4 +72,3 @@ class Spielfeld:
 			return True
 		else:
 			return False
-	
